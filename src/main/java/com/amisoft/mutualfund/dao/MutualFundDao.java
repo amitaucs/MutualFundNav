@@ -10,7 +10,9 @@ import java.util.List;
 public interface MutualFundDao extends CrudRepository<MutualFund,Long> {
 
 
-    public MutualFund findMutualFundBySchemaName(String fundName);
-    public List<MutualFund> findAllByFundManager(String fundManager);
+     MutualFund findMutualFundBySchemaName(String fundName);
+     List<MutualFund> findAllByFundManager(String fundManager);
+     List<MutualFund> findAllBySchemaCode(String fundManager);
+
 
 }
