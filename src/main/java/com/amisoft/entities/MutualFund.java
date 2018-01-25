@@ -1,5 +1,9 @@
 package com.amisoft.entities;
 
+
+import org.springframework.stereotype.Component;
+
+@Component
 public class MutualFund {
 
     private String schemaCode;

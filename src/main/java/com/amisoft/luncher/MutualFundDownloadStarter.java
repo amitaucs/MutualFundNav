@@ -1,16 +1,20 @@
 package com.amisoft.luncher;
 
-import com.amisoft.mutualfund.MutualFundNavService;
 import com.amisoft.timer.MutualFundTimer;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 
+@Service
 public class MutualFundDownloadStarter {
 
-    public static void main(String[] args) throws IOException {
+    @Autowired
+    MutualFundTimer timer;
 
-        MutualFundTimer fundTimer = new MutualFundTimer(new MutualFundNavService());
-        fundTimer.startExecutionAt(23,14,00);
+    public  void mutualFundDownloader(int targetHour, int targetMin, int targetSec) throws IOException {
+
+        timer.startExecutionAt(targetHour,targetMin,targetSec);
 
 
     }

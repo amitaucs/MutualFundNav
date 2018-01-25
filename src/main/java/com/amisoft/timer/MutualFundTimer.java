@@ -1,6 +1,7 @@
 package com.amisoft.timer;
 
 import com.amisoft.mutualfund.MutualFundNavService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -18,13 +19,11 @@ import java.util.logging.Logger;
 public class MutualFundTimer  {
 
     ScheduledExecutorService executorService = Executors.newScheduledThreadPool(1);
+
+    @Autowired
     MutualFundNavService mfTask;
 
-    public MutualFundTimer(MutualFundNavService myTask$) {
 
-        mfTask = myTask$;
-
-    }
 
     public void startExecutionAt(int targetHour, int targetMin, int targetSec) {
 
