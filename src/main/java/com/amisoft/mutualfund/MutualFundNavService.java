@@ -114,6 +114,8 @@ public class MutualFundNavService {
         mf.setSchemaCode(array[indexMap.get(SCHEMA_CODE)]);
         mf.setSchemaName(array[indexMap.get(SCHEMA_NAME)]);
         mf.setNav(array[indexMap.get(NAV)]);
+        mf.setDate(array[indexMap.get(DATE)]);
+        mf.setGrowthOrDiv(array[indexMap.get(ISIN_GROWTH)]);
         mf.setFundManager(fundManager[0]);
         mf.setFundType(fundType[0]);
         return mf;

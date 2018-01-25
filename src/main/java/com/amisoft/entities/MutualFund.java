@@ -2,9 +2,10 @@ package com.amisoft.entities;
 
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
-@Table(name="t_mutual_fund")
+@Table(name = "t_mutual_fund")
 public class MutualFund {
 
     @Id
@@ -15,6 +16,8 @@ public class MutualFund {
     private String nav;
     private String fundManager;
     private String fundType;
+    private String growthOrDiv;
+    private String date;
 
 
     public int getId() {
@@ -63,5 +66,21 @@ public class MutualFund {
 
     public void setFundType(String fundType) {
         this.fundType = fundType;
+    }
+
+    public String getGrowthOrDiv() {
+        return growthOrDiv;
+    }
+
+    public void setGrowthOrDiv(String growthOrDiv) {
+        this.growthOrDiv = growthOrDiv;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 }
