@@ -1,0 +1,38 @@
+To get all mutual fund:
+
+    /mutualfund/getAllMutualFund
+
+  Output : List of mutual funds. Refer "AllMutualFundOutput.txt"
+
+
+To get Mutual fund by Fund name:
+
+    /mutualfund/byFundName?name=<Fund Name>
+
+    e.g. /mutualfund/byFundName?name=Aditya Birla Sun Life Balanced '95 Fund - Direct Plan-Dividend
+
+   Output : Refer "SingleFundOutput.txt"
+
+
+ To get Mutual fund by Fund Manager name:
+
+      /mutualfund/byFundManager?name=<Fund Manager Name>
+
+          e.g. /mutualfund/byFundManager?name=Axis Mutual Fund
+
+
+  Output : same as "llMutualFundOutput.txt"
+
+
+To get Mutual fund by Fund Schema Code:
+
+    /mutualfund/bySchemaCode?name=<Fund Code>
+
+    e.g. /mutualfund/bySchemaCode?name=bySchemaCode
+
+   Output : Refer "SingleFundOutput.txt"
+
+
+ Refer the "MutualFund.java" for output.
+
+ If return code is "Bad Request" , no need to process further.
