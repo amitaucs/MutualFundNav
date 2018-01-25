@@ -30,7 +30,7 @@ public class MutualFundController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
     }
 
-    @GetMapping("/getFundByName")
+    @GetMapping("/byFundName")
     public ResponseEntity<MutualFund> getFundByName(@RequestParam(value="name") String fundName) {
 
 
@@ -42,7 +42,7 @@ public class MutualFundController {
     }
 
 
-    @GetMapping("/getFundByFundManager")
+    @GetMapping("/byFundManager")
     public ResponseEntity<List<MutualFund>> getFundByFundManager(@RequestParam(value="name") String fundManagerName) {
 
 
@@ -54,7 +54,7 @@ public class MutualFundController {
     }
 
 
-    @GetMapping("/getFundBySchemaCode")
+    @GetMapping("/bySchemaCode")
     public ResponseEntity<List<MutualFund>> getFundBySchemaCode(@RequestParam(value="name") String schemaCode) {
 
 
