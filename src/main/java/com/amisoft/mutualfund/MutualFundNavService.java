@@ -14,10 +14,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -61,7 +58,7 @@ public class MutualFundNavService {
 
         try {
 
-            Files.lines(Paths.get(fileName))
+            List<MutualFund> mutualFundList = Files.lines(Paths.get(fileName))
                     .map(line -> line.split(SEPARATOR))
                     .map(array -> {
 
@@ -91,24 +88,22 @@ public class MutualFundNavService {
                             return extractMutualFund(fundType, fundManager, indexMap, array);
                         else
                             return null;
-                    }).collect(Collectors.toList()).stream().forEach(mutualFund -> {
+                    }).collect(Collectors.toList()).stream().filter(Objects::nonNull).collect(Collectors.toList());
 
-                if (null != mutualFund) {
+            if (mutualFundList.size() >= 100) {
 
-                    mutualFundDao.save(mutualFund);
+                mutualFundDao.deleteAll();
 
-                }
-            });
+                mutualFundList.forEach(mutualFund -> mutualFundDao.save(mutualFund));
+            }
+
+            System.out.println("------Mutual fund data loaded successfully --------");
 
 
         } catch (Exception ex) {
             ex.printStackTrace();
         }
 
-        System.out.println("--------------");
-        fundManagerList.forEach(System.out::println);
-        System.out.println("--------------");
-        fundTypeList.forEach(System.out::println);
 
 
     }
@@ -127,11 +122,15 @@ public class MutualFundNavService {
 
     private void fetchNavFromAmfi(String urlString, String fileName) throws IOException {
 
+        System.out.println("NAV download started");
+
         HttpClient client = HttpClients.createDefault();
         HttpGet httpGet = new HttpGet(urlString);
         HttpResponse response = client.execute(httpGet);
         File navtxt = new File(fileName);
         FileUtils.copyInputStreamToFile(response.getEntity().getContent(), navtxt);
+
+        System.out.println("NAV download completed successfully");
 
     }
 
