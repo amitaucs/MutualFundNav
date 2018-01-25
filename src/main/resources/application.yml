@@ -1,4 +1,23 @@
 ---
+
+server:
+  port: 8001
+
+security:
+  basic:
+    enabled: false
+
 spring:
-  main:
-    web-environment: false
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/mutualFund
+    username: root
+    password: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+      naming:
+        strategy: org.hibernate.cfg.DefaultNamingStrategy
+    show-sql: false
+
+
+

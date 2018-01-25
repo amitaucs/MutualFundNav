@@ -1,16 +1,29 @@
 package com.amisoft.entities;
 
 
-import org.springframework.stereotype.Component;
+import javax.persistence.*;
 
-@Component
+@Entity
+@Table(name="t_mutual_fund")
 public class MutualFund {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
     private String schemaCode;
     private String schemaName;
     private String nav;
     private String fundManager;
     private String fundType;
+
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getSchemaCode() {
         return schemaCode;

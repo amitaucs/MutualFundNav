@@ -1,11 +1,13 @@
 package com.amisoft.mutualfund;
 
+import com.amisoft.mutualfund.dao.MutualFundDao;
 import com.amisoft.entities.MutualFund;
 import org.apache.commons.io.FileUtils;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.HttpClients;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
@@ -35,7 +37,12 @@ public class MutualFundNavService {
     public static final String CLOSE = "Close";
     public static final String FUND = "Fund";
 
+
+    @Autowired
+    MutualFundDao mutualFundDao;
+
     public void loadMutualFund() throws IOException {
+
 
         String urlString = "https://www.amfiindia.com/spages/NAVALL.txt";
         String fileName = "/Users/amitdatta/Amit_Work/Java_Mutual_Fund/navtxt.txt";
@@ -88,12 +95,8 @@ public class MutualFundNavService {
 
                 if (null != mutualFund) {
 
-                    System.out.println(mutualFund.getSchemaCode());
-                    System.out.println(mutualFund.getSchemaName());
-                    System.out.println(mutualFund.getNav());
-                    System.out.println(mutualFund.getFundManager());
-                    System.out.println(mutualFund.getFundType());
-                    System.out.println("-------------");
+                    mutualFundDao.save(mutualFund);
+
                 }
             });
 

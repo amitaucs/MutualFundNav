@@ -4,11 +4,13 @@ import com.amisoft.luncher.MutualFundDownloadStarter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 import javax.annotation.PostConstruct;
 import java.io.IOException;
 
 @SpringBootApplication
+@EntityScan("com.amisoft.entities")
 public class MutualFundApplication {
 
 
