@@ -93,8 +93,9 @@ public class MutualFundNavService {
             if (mutualFundList.size() >= 100) {
 
                 mutualFundDao.deleteAll();
+                mutualFundDao.save(mutualFundList);
 
-                mutualFundList.forEach(mutualFund -> mutualFundDao.save(mutualFund));
+                //mutualFundList.forEach(mutualFund -> mutualFundDao.save(mutualFund));
             }
 
             System.out.println("------Mutual fund data loaded successfully --------");

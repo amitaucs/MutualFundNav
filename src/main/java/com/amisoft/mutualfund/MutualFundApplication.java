@@ -17,23 +17,26 @@ public class MutualFundApplication {
     @Autowired
     MutualFundDownloadStarter mutualFundDownloadStarter;
 
-    static private int startHour, startMinute, startsec;
+    static private int startHour = 20;
+    static private int startMinute = 39;
+    static private int startsec = 00;
 
     public static void main(String[] args) {
 
         if (args.length < 2){
 
-            System.out.println("Invalid parameter, Please specify start hour, minute and second");
-            System.exit(0);
+            System.out.println("No parameter passed, started with default parameter");
         }
 
         else {
             startHour = Integer.parseInt(args[0]);
             startMinute = Integer.parseInt(args[1]);
             startsec = Integer.parseInt(args[2]);
-
-            SpringApplication.run(MutualFundApplication.class, args);
         }
+
+
+        SpringApplication.run(MutualFundApplication.class, args);
+
 
     }
 
