@@ -27,9 +27,9 @@ public class MutualFundApplication {
 
         if (args.length < 2){
 
-            startHour = LocalDateTime.now().getHour();
-            startMinute = LocalDateTime.now().getMinute();
-            startSecond = LocalDateTime.now().getSecond();
+            startHour = 00;
+            startMinute = 00;
+            startSecond = 00;
         }
 
         else {
