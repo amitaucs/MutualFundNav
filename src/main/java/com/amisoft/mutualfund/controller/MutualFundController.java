@@ -27,12 +27,6 @@ public class MutualFundController {
     MutualFundNavService mutualFundNavService;
 
 
-    @GetMapping("/welcome")
-    public ResponseEntity<String> welcomeToMutualFundNav() {
-
-        return ResponseEntity.status(HttpStatus.OK).body(("Welcome to mutual fund nav"));
-    }
-
     @GetMapping("/getAllMutualFund")
     public ResponseEntity<List<MutualFund>> getAllMutualFund() {
 
@@ -79,18 +73,6 @@ public class MutualFundController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
     }
 
-    @GetMapping("/loadMutualFund")
-    public ResponseEntity<String> loadMutualFund() {
-
-
-        try {
-            mutualFundNavService.loadMutualFund();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        return ResponseEntity.status(HttpStatus.OK).body(("Mutual fund loaded successfully"));
-    }
 
 
 }
