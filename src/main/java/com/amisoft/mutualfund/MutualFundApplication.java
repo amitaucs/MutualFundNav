@@ -8,6 +8,8 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 import javax.annotation.PostConstruct;
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @SpringBootApplication
 @EntityScan("com.amisoft.entities")
@@ -17,21 +19,23 @@ public class MutualFundApplication {
     @Autowired
     MutualFundDownloadStarter mutualFundDownloadStarter;
 
-    static private int startHour = 21;
-    static private int startMinute = 40;
-    static private int startsec = 00;
+    static private int startHour ;
+    static private int startMinute;
+    static private int startSecond;
 
     public static void main(String[] args) {
 
         if (args.length < 2){
 
-            System.out.println("No parameter passed, started with default parameter");
+            startHour = LocalDateTime.now().getHour();
+            startMinute = LocalDateTime.now().getMinute();
+            startSecond = LocalDateTime.now().getSecond();
         }
 
         else {
             startHour = Integer.parseInt(args[0]);
             startMinute = Integer.parseInt(args[1]);
-            startsec = Integer.parseInt(args[2]);
+            startSecond = Integer.parseInt(args[2]);
         }
 
 
@@ -44,7 +48,7 @@ public class MutualFundApplication {
     @PostConstruct
     public void loadMutualFundNav() throws IOException {
 
-        mutualFundDownloadStarter.mutualFundDownloader(startHour,startMinute,startsec);
+        mutualFundDownloadStarter.mutualFundDownloader(startHour,startMinute,startSecond);
 
     }
 
