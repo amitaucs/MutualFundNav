@@ -42,7 +42,8 @@ public class MutualFundNavService {
 
 
         String urlString = "https://www.amfiindia.com/spages/NAVALL.txt";
-        String fileName = "/Users/amitdatta/Amit_Work/Java_Mutual_Fund/navtxt.txt";
+        //String fileName = "/Users/amitdatta/Amit_Work/Java_Mutual_Fund/navtxt.txt";
+        String fileName = "navtxt.txt";
         String regex = "\\d+";
 
         fetchNavFromAmfi(urlString, fileName);
