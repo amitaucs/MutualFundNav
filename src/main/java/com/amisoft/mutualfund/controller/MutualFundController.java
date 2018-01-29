@@ -26,6 +26,13 @@ public class MutualFundController {
     @Autowired
     MutualFundNavService mutualFundNavService;
 
+
+    @GetMapping("/welcome")
+    public ResponseEntity<String> welcomeToMutualFundNav() {
+
+        return ResponseEntity.status(HttpStatus.OK).body(("Welcome to mutual fund nav"));
+    }
+
     @GetMapping("/getAllMutualFund")
     public ResponseEntity<List<MutualFund>> getAllMutualFund() {
 
