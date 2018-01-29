@@ -2,6 +2,7 @@ package com.amisoft.mutualfund.controller;
 
 
 import com.amisoft.entities.MutualFund;
+import com.amisoft.mutualfund.MutualFundNavService;
 import com.amisoft.mutualfund.dao.MutualFundDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.io.IOException;
 import java.util.List;
 
 @RestController
@@ -20,6 +22,9 @@ public class MutualFundController {
 
     @Autowired
     MutualFundDao mutualFundDao;
+
+    @Autowired
+    MutualFundNavService mutualFundNavService;
 
     @GetMapping("/getAllMutualFund")
     public ResponseEntity<List<MutualFund>> getAllMutualFund() {
@@ -65,6 +70,19 @@ public class MutualFundController {
             return ResponseEntity.status(HttpStatus.OK).body((mutualFundList));
         else
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
+    }
+
+    @GetMapping("/loadMutualFund")
+    public ResponseEntity<String> loadMutualFund() {
+
+
+        try {
+            mutualFundNavService.loadMutualFund();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return ResponseEntity.status(HttpStatus.OK).body(("Mutual fund loaded successfully"));
     }
 
 
