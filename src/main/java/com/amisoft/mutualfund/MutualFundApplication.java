@@ -17,8 +17,8 @@ public class MutualFundApplication {
     @Autowired
     MutualFundDownloadStarter mutualFundDownloadStarter;
 
-    static private int startHour = 20;
-    static private int startMinute = 39;
+    static private int startHour = 21;
+    static private int startMinute = 40;
     static private int startsec = 00;
 
     public static void main(String[] args) {
