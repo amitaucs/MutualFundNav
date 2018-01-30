@@ -58,7 +58,7 @@ public class MutualFundNavService {
 
         try {
 
-            List<MutualFund> mutualFundList = Files.lines(Paths.get(fileName))
+            List<MutualFund> mutualFundList = Files.lines(Paths.get(fileName)).limit(2500)
                     .map(line -> line.split(SEPARATOR))
                     .map(array -> {
 
