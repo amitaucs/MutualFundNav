@@ -58,7 +58,7 @@ public class MutualFundNavService {
 
         try {
 
-            List<MutualFund> mutualFundList = Files.lines(Paths.get(fileName)).limit(2500)
+            List<MutualFund> mutualFundList = Files.lines(Paths.get(fileName))
                     .map(line -> line.split(SEPARATOR))
                     .map(array -> {
 
@@ -88,7 +88,7 @@ public class MutualFundNavService {
                             return extractMutualFund(fundType, fundManager, indexMap, array);
                         else
                             return null;
-                    }).collect(Collectors.toList()).stream().filter(Objects::nonNull).collect(Collectors.toList());
+                    }).collect(Collectors.toList()).stream().limit(1000).filter(Objects::nonNull).collect(Collectors.toList());
 
             if (mutualFundList.size() >= 100) {
 
