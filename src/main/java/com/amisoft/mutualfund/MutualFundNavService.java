@@ -88,7 +88,7 @@ public class MutualFundNavService {
                             return extractMutualFund(fundType, fundManager, indexMap, array);
                         else
                             return null;
-                    }).collect(Collectors.toList()).stream().filter(Objects::nonNull).collect(Collectors.toList());
+                    }).limit(1500).collect(Collectors.toList()).stream().filter(Objects::nonNull).collect(Collectors.toList());
 
             if (mutualFundList.size() >= 100) {
 
