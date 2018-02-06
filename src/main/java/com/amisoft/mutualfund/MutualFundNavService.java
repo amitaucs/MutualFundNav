@@ -132,7 +132,7 @@ public class MutualFundNavService {
         File navtxt = new File(fileName);
         FileUtils.copyInputStreamToFile(response.getEntity().getContent(), navtxt);
 
-        System.out.println("NAV download has been completed successfully");
+        System.out.println("NAV download completed successfully");
 
     }
 
